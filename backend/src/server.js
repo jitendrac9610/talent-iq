@@ -2,6 +2,8 @@ import express from "express";
 import path from "path";
 
 import { ENV } from "./lib/env.js";
+import { connect } from "http2";
+import { connectDB } from "./lib/db.js";
 
 const app = express();
 
@@ -28,4 +30,5 @@ const PORT = ENV.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log("Server running on port:", PORT);
+  connectDB();
 });
